@@ -1,6 +1,10 @@
 <h1>Welcome to the "Voices of the Void"! :)</h1>
 <p>Grab some tea, stay here, by this virtual campfire and listen to some awesome tunes.</p>
 <p>Hope, you'll like it. (^_^)</p>
-
-
-
+<br>
+<p>Albums avialable:</p>
+<ul>
+    <% @albums.each do |album| %>
+        <li><%= album.name %> by <%= album.author %> <%= album.length %></li>
+    <% end %>
+</ul>
