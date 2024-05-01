@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/index'
   devise_for :users
 
   namespace :admin do
@@ -14,4 +15,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
+
+  get "albums/:id", to: "pages#show", as: "album"
+  get 'search', to: 'search#index'
+  get 'random_album', to: 'pages#random_album'
 end

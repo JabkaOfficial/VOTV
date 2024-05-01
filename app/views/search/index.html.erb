@@ -1,0 +1,14 @@
+<h1>Search Results</h1>
+<% if @results.present? %>
+  <ul>
+    <% @results.each do |result| %>
+      <% if result.is_a?(Album) %>
+        <li><%= link_to result.name, album_path(result) %> by <%= result.author %></li>
+      <% elsif result.is_a?(Track) %>
+        <li><%= link_to "#{result.album.name} - #{result.name}", album_track_path(result.album, result) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No results found.</p>
+<% end %>

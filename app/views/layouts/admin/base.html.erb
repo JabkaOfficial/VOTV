@@ -14,6 +14,22 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <%= link_to "VOTV", root_path %>
+
+    <div class="search-bar">
+      <%= form_tag(search_path, method: "get") do %>
+        <%= text_field_tag :query, params[:query], placeholder: "Search..." %>
+        <%= select_tag :category, options_for_select(["Name", "Author", "Lyrics"]) %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? && current_user.admin? %>
+      <p>Welcome, Admin!</p>
+    <% else %>
+      <p>Welcome, User!</p>
+    <% end %>
+
     <!--<%= link_to "Sign in", new_user_session_path %>-->
     <% if user_signed_in? %>
         <%= link_to("Edit registration", edit_user_registration_path) %>

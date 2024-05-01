@@ -5,6 +5,8 @@
 <p>Albums avialable:</p>
 <ul>
     <% @albums.each do |album| %>
-        <li><%= album.name %> by <%= album.author %> <%= album.length %></li>
+        <li><%= link_to album.name, album_path(album) %> by <%= album.author %> <%= album.length %></li>
     <% end %>
 </ul>
+
+<%= button_to "Random Album", random_album_path, method: :get %>
