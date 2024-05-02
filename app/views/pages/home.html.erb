@@ -5,7 +5,15 @@
 <p>Albums avialable:</p>
 <ul>
     <% @albums.each do |album| %>
-        <li><%= link_to album.name, album_path(album) %> by <%= album.author %> <%= album.length %></li>
+        <li>
+            <%= link_to album.name, album_path(album) %> by <%= album.author %> <%= album.length %>
+
+            <% if current_user&.admin? %>
+                <%= link_to "Delete", admin_album_destroy_path(album), method: :delete, data: { confirm: "Are you sure?" } %>
+                <%= link_to "Edit", edit_admin_album_path(album) %>
+            <% end %>
+        </li>
+
     <% end %>
 </ul>
 

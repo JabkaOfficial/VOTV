@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'users', to: 'dashboard#users', as: 'users'
     get 'promote_to_admin/:user_id', to: 'dashboard#promote_to_admin', as: 'promote_to_admin'
     get 'revoke_admin/:user_id', to: 'dashboard#revoke_admin', as: 'revoke_admin'
+    resources :albums, only: [:destroy, :edit, :update, :new, :create]
+    get "albums/destroy/:id", to: "albums#destroy", as: "album_destroy"
   end
 
   # get 'pages/home'
