@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard
+    # get "dashboard", to: "dashboard#index", as: "dashboard_index"
+    get 'users', to: 'dashboard#users', as: 'users'
+    get 'promote_to_admin/:user_id', to: 'dashboard#promote_to_admin', as: 'promote_to_admin'
+    get 'revoke_admin/:user_id', to: 'dashboard#revoke_admin', as: 'revoke_admin'
   end
 
   # get 'pages/home'
