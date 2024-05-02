@@ -1,20 +1,3 @@
-<!--
-<h1>All Users</h1>
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= user.email %>
-      <% unless user.admin? %>
-        <%= link_to "Promote to admin", admin_promote_to_admin_path(user_id: user.id), method: :patch %>
-      <% end %>
-
-      <% unless !user.admin? %>
-        <%= link_to "Revoke admin", admin_revoke_admin_path(user_id: user.id), method: :patch %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
--->
 
 <div class="container">
   <h2>All Users</h2>
