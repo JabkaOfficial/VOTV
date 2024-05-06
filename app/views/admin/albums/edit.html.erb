@@ -1,4 +1,4 @@
-<%= form_with(model: @album, url: admin_album_path(@album), method: :patch) do |form| %>
+<%= form_with(model: @album, url: admin_album_path(@album), html: {multipart: true}, method: :patch) do |form| %>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>

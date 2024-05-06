@@ -2,15 +2,37 @@
 <p>Author: <%= @album.author %></p>
 <p>Release Year: <%= @album.release_year %></p>
 
-  <div class="field">
-    Author: <%= @album.author %>
+<div class="field">
+  Author: <%= @album.author %>
+</div>
+<div class="field">
+  Release year: <%= @album.release_year %>
+</div>
+<div class="field">
+  Length: <%= @album.length %>
+</div>
+<div class="field">
+  Quantity: <%= @album.quantity %>
+</div>
+
+<% if @album.tracks != [] %>
+  <p>List of tracks:</p>
+  <div class="container mt-4">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Length</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @album.tracks.each do |track| %>
+        <tr>
+          <td><%= track.name %></td>
+          <td><%= track.length %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
   </div>
-  <div class="field">
-    Release year: <%= @album.release_year %>
-  </div>
-  <div class="field">
-    Length: <%= @album.length %>
-  </div>
-  <div class="field">
-    Quantity: <%= @album.quantity %>
-  </div>
+<% end %>
