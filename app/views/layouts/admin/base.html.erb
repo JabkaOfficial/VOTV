@@ -49,13 +49,13 @@
     <p class="alert"><%= alert %></p>
 
 
-
-    <%= yield %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
   </body>
 
 
   <style>
-  /* Header styles */
   .header {
     display: flex;
     justify-content: space-between;
@@ -65,20 +65,17 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
 
-  /* Search form styles */
   .search-form {
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
-  /* User links styles */
   .user-links {
     display: flex;
     gap: 10px;
   }
 
-  /* Responsive styles */
   @media (max-width: 768px) {
     .header {
       flex-direction: column;
@@ -92,6 +89,11 @@
     .user-links {
       margin-top: 10px;
     }
+  }
+
+  .wrapper {
+    margin: 0% 3% 3% 3%;
+    padding: 0% 3% 3% 3%;
   }
   </style>
 </html>
