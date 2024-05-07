@@ -1,6 +1,6 @@
 <h1>Welcome to the "Voices of the Void"! :)</h1>
-<p>Grab some tea, stay here, by this virtual campfire and listen to some awesome tunes.</p>
-<p>Hope, you'll like it. (^_^)</p>
+<p>Grab some tea, stay here and listen to some awesome tunes.</p>
+<p>Hope, you'll like this collection. (^_^)</p>
 <br>
 <h2>Albums avialable</h2><br>
 
@@ -9,9 +9,9 @@
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Author</th>
-        <th>Release year</th>
+        <th><%= link_to "Name", root_path(sort_column: 'name', sort_direction: @sort_column == 'name' && @sort_direction == 'asc' ? 'desc' : 'asc') %></th>
+        <th><%= link_to "Author", root_path(sort_column: 'author', sort_direction: @sort_column == 'author' && @sort_direction == 'asc' ? 'desc' : 'asc') %></th>
+        <th><%= link_to "Release Year", root_path(sort_column: 'release_year', sort_direction: @sort_column == 'release_year' && @sort_direction == 'asc' ? 'desc' : 'asc') %></th>
         <th>Length</th>
         <th>Quantity</th>
         <th>Actions</th>

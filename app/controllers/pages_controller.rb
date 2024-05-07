@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def home
-    @albums = Album.all
+    # @albums = Album.all
+    @sort_column = params[:sort_column] || 'name'
+    @sort_direction = params[:sort_direction] || 'asc'
+    @albums = Album.order("#{@sort_column} #{@sort_direction}")
   end
 
   def show
