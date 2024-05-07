@@ -1,0 +1,17 @@
+<%= form_with(model: @track, url: admin_track_path(@track), html: {multipart: true}, method: :patch) do |form| %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.label :length %>
+      <%= form.text_field :length %>
+    </div>
+    <div class="field">
+      <%= form.label :lyrics %>
+      <%= form.text_area :lyrics %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>

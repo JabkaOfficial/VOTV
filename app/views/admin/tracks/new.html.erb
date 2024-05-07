@@ -1,0 +1,21 @@
+<%= form_with(model: @track, url: admin_tracks_path, method: :post, multipart: true) do |form| %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.label :length %>
+      <%= form.text_field :length %>
+    </div>
+    <div class="field">
+      <%= form.label :lyrics %>
+      <%= form.text_area :lyrics %>
+    </div>
+    <div class="field">
+      <%= form.label :album_id %>
+      <%= form.collection_select(:album_id, Album.all, :id, :name, prompt: "Select an album") %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>

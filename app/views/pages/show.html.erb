@@ -22,13 +22,24 @@
           <tr>
             <th>Name</th>
             <th>Length</th>
+            <% if current_user.admin? %>
+              <th>Actions</th>
+            <% end %>            
+
           </tr>
         </thead>
         <tbody>
         <% @album.tracks.each do |track| %>
           <tr>
-            <td><%= track.name %></td>
+            <td><%= link_to track.name, track_path(track) %></td>
             <td><%= track.length %></td>
+            <td>
+              <% if current_user.admin? %>
+                <%= link_to 'Edit', edit_admin_track_path(track) %>
+                <%= link_to "Delete", admin_track_destroy_path(track) %>
+              <% end %>            
+
+            </td>
           </tr>
         <% end %>
         </tbody>

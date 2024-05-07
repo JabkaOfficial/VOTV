@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tracks/show'
   get 'search/index'
   devise_for :users
 
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
     get 'revoke_admin/:user_id', to: 'dashboard#revoke_admin', as: 'revoke_admin'
     resources :albums, only: [:destroy, :edit, :update, :new, :create]
     get "albums/destroy/:id", to: "albums#destroy", as: "album_destroy"
+
+    resources :tracks, only: [:destroy, :edit, :update, :new, :create]
+    get "tracks/destroy/:id", to: "tracks#destroy", as: "track_destroy"
   end
 
   # get 'pages/home'
@@ -25,4 +29,6 @@ Rails.application.routes.draw do
   get "albums/:id", to: "pages#show", as: "album"
   get 'search', to: 'search#index'
   get 'random_album', to: 'pages#random_album'
+
+  get "tracks/:id", to: "tracks#show", as: "track"
 end
